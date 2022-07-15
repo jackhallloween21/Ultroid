@@ -1,18 +1,13 @@
 {
-    "name": "Ultroid UserBot",
-    "description": "Pluggable telegram userbot, made in python using Telethon.",
-    "logo": "https://telegra.ph/file/031957757a4f6a5191040.jpg",
+    "name": "Der bot",
+    "description": "Hapere",
+    "logo": "",
     "keywords": [
-        "Telethon",
-        "telegram",
-        "userbot",
-        "python",
-        "ultroid"
+        "gehehsh"
     ],
-    "repository": "https://github.com/TeamUltroid/Ultroid",
-    "website": "https://ultroid.tech",
-    "success_url": "https://t.me/TheUltroid",
-    "stack": "container",
+    "repository": "https://var.com/",
+    "success_url": "https://combat",
+    "stack": "heroku-20",
     "env": {
         "API_ID": {
             "description": "You api id, from my.telegram.org or @ScrapperRoBot.",
@@ -30,27 +25,43 @@
         },
         "REDIS_URI": {
             "description": "Redis endpoint URL, from redislabs.com",
-            "value": ""
+            "value": "",
+            "required": false
         },
         "REDIS_PASSWORD": {
             "description": "Redis endpoint password, from redislabs.com",
-            "value": ""
+            "value": "",
+            "required": false
         },
         "HEROKU_API": {
-            "description": "Heroku API token. Mandatory for Heroku Deploy...",
+            "description": "Heroku API token. Needed if deploying on heroku ONLY.",
             "value": "",
-            "required": false
+            "required": true
         },
         "HEROKU_APP_NAME": {
-            "description": "Name of your Heroku app, given in the first blank on this page. To be added if deploying to heroku ONLY.",
+            "description": "Name of your heroku app, given in the first blank on this page. To be added if deploying to heroku ONLY.",
             "value": "",
-            "required": false
+            "required":  true
         }
     },
     "formation": {
-        "ultroid": {
+      "worker": {
             "quantity": 1,
             "size": "free"
         }
+    },
+    "buildpacks": [
+    {
+        "url":"heroku/python"
+    },
+    {
+        "url":"heroku-community/apt"
+    },
+    {
+        "url":"https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+        "url":"https://github.com/stevo550/buildpack-slug-cleaner"
     }
+    ]
 }
